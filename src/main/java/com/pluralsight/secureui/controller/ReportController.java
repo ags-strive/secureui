@@ -35,9 +35,6 @@ public class ReportController {
                 .retrieve()
                 .bodyToFlux(TollData.class);
 
-        List<TollData> temp = response.collectList().block();
-        System.out.println("HERE: " + temp.get(0).getLicensePlate());
-
-        return temp;
+        return response.collectList().block();
     }
 }
